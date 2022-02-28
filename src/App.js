@@ -103,7 +103,7 @@ export const TemperatureState = ({current, minimum, maximum}) => {
   } else if (current <= maximum && current >= minimum) {
     state = "all good";
   }
-  return <span >{status}</span>;
+  return <span >{state}</span>;
 }
 
 export default App;

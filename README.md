@@ -11,6 +11,7 @@ Please refer to the provided document for the code challenge requirements.
 ### Highlights of improvements
 - Add unit tests for temperature status span before start code refactorings 
 - Extract temperature state as a component and verify test still pass 
+- Refactor TemperatureState component tests 
 
 ### What would I improve next if I had more time
 
