@@ -80,14 +80,11 @@ function App() {
               <td width={150}>{items[itemKey].name}</td>
               <td width={150}>{items[itemKey].temperature}</td>
               <td width={150}>
-                {items[itemKey].temperature <
-                  items[itemKey].minimumTemperature && <span>too low</span>}
-                {items[itemKey].temperature >
-                  items[itemKey].maximumTemperature && <span>too high</span>}
-                {items[itemKey].temperature <=
-                  items[itemKey].maximumTemperature &&
-                  items[itemKey].temperature >=
-                    items[itemKey].minimumTemperature && <span>all good</span>}
+                <TemperatureState current={items[itemKey].temperature}
+                                  minimum={items[itemKey].minimumTemperature}
+                                  maximum={items[itemKey].maximumTemperature}
+                                  />
+
               </td>
             </tr>
           ))}
@@ -95,6 +92,18 @@ function App() {
       </table>
     </div>
   );
+}
+
+export const TemperatureState = ({current, minimum, maximum}) => {
+  let state;
+  if (current < minimum) {
+    state = "too low";
+  } else if (current > maximum) {
+    state = "too high";
+  } else if (current <= maximum && current >= minimum) {
+    state = "all good";
+  }
+  return <span >{status}</span>;
 }
 
 export default App;
