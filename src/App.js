@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
-import {BeerMetaData} from "./data/beer.data";
+import {ProductMetaData} from "./data/beer.data";
 
 function App() {
   const [items, setItems] = useState({});
-
   useEffect(() => {
     const request = () =>
-        BeerMetaData.forEach((product) => {
+        ProductMetaData.forEach((product) => {
         fetch(`http://localhost:8081/temperature/${product.id}`)
-          .then((response) => response.json())
-          .then((response) =>
+          .then(response => response.json())
+          .then(response =>
             setItems((prevItems) => ({
               ...prevItems,
               [product.id]: {
@@ -17,7 +16,7 @@ function App() {
                 ...response,
               },
             }))
-          );
+          ).catch(e => console.log('error while fetching data from backend'));
       });
 
     setInterval(request, 5000);

@@ -1,4 +1,4 @@
-export const BeerMetaData = [
+export const ProductMetaData = [
     {
         id: '1',
         name: 'Pilsner',
